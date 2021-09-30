@@ -1,6 +1,6 @@
 FROM debian:buster
 
-LABEL maintainer="mkacie@student.21-school.ru"
+LABEL maintainer="uljaninairina@gmail.com"
 ENV TZ=Europe/Moscow
 
 RUN apt-get update && apt-get -y upgrade && \
@@ -10,7 +10,7 @@ COPY srcs/service.conf /etc/nginx/conf.d/
 RUN touch /var/www/index.php && echo "<?php phpinfo(); ?>" >> /var/www/index.php
 
 RUN mkdir /etc/nginx/ssl && \
-	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out /etc/nginx/ssl/local.pem -keyout /etc/nginx/ssl/local.key -subj "/C=RU/ST=NSO/L=Moscow/O=21school/CN=mkacie/emailAddress=mkacie@student.21-school.ru"
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out /etc/nginx/ssl/local.pem -keyout /etc/nginx/ssl/local.key -subj "/C=RU/ST=NSO/L=Moscow/O=school/CN=mkacie/emailAddress=mkacie@student.21-school.ru"
 
 RUN mkdir /var/www/phpMyAdmin && cd /var/www/phpMyAdmin &&\
 	wget -c https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-english.tar.gz -O phpMyAdmin.tar.gz && \
